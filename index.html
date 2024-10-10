@@ -8,12 +8,20 @@
     <title>Come up with a great name and put it here!</title>
 </head>
 <body>
-    <h1>TODO-LISTA</h1> <!-- keksi sovellukselle parempi, osuvampi nimi -->
+    <h1>Listbuddy</h1>
     <input type="text" id="task" placeholder="Mitä tänään tehtäisiin?" />
     <button onclick="addItem()" id="addButton">Lisää</button>
     <div id="message"></div> <!-- tämä voisi lähettää esim. "lisätty onnistuneesti tai erroreita?" -->
+    <div>
+        <h2 id="listname" onclick="changeListName()">Listan nimi </h2>
+        <form onsubmit="submitListName(); return false;"> <!-- return false; estää sivun uudelleen latautumisen lähettäessä -->
+            <input type="text" id="editListName" style="display:none;" onblur="submitListName()"/> <!-- onblur = kun fokus poistuu kentästä (käyttäjä klikkaa pois) -->
+            <button id="submitButton" style="display:none;">Tallenna</button>
+        </form>
+        <p class="help">&#128393; edit list name by clicking it</p>
+    </div>
     <ul id="list">
-        <li></li>
+        
 
 
 
@@ -23,3 +31,9 @@
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+<!-- <input type="text" id="modifyListName"> -->

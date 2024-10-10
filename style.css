@@ -10,7 +10,60 @@
     width: 200px;
 }
 
+.help {
+    font-size: 8px;
+    margin-top: 0;
+}
+
+ul {
+    width: 200px;
+    margin: 0px;
+    padding: 0;
+
+}
 
 li {
     list-style-type: none;
+    border: 1px solid gray;
+    width: 200px;
+    margin: 5px;
+    position: relative;
+}
+li.done { /* valmiiksi merkatun tehtävän tyylit */
+    text-decoration: line-through;
+    color: #999;
+}
+
+h2, #editListName {
+    font-family: Arial, sans-serif; /* Sama fontti molemmille */
+    font-size: 24px; 
+    line-height: 1.2; 
+    font-weight: bold; /* H2 on oletuksena lihavoitu, joten inputin pitäisi olla myös */
+    margin: 0; 
+    padding: 0;
+    display: inline-block; 
+    vertical-align: middle; 
+}
+h2 {
+    border: 2px solid white;
+}
+.delete-btn {
+    color: red;
+    background-color: white;
+    text-decoration: none;
+    border: 0;
+    height: 12px;
+    width: 12px;
+    font-size: 8px;
+    padding: 0;
+    margin: 0;
+    top: 50%;
+    right: 0;
+    position:absolute;
+    display: none; /* Piilotetaan nappi oletusarvoisesti */
+    transform: translateY(-50%); /* keskitetty pystysuunnassa */
+}
+
+li:hover .delete-btn {
+    display: inline-block; /* Näytetään nappi, kun hiiri on li-elementin päällä */
 }
