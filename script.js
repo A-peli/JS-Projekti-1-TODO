@@ -1,27 +1,26 @@
 //muutetaan DOM -elementit muuttujiksi myöhempää käyttöä varten
-const newTask = document.getElementById("task");
-const addButton = document.getElementById("add-button");
-const list = document.getElementById("list");
-const message = document.getElementById("message");
+const taskInput = document.getElementById("task"); //tehtävien syöttökenttä
+const addButton = document.getElementById("add-button"); //tehtävien lisäysnappi
+const list = document.getElementById("list"); //tehtävälista
+const message = document.getElementById("message"); //käyttäjälle lähetettävien viestien kenttä
+const taskCounter = document.getElementById("task-counter"); //tehtävälaskuri
 
-/* jotenki näin?:
-1. Tarkista käyttäjän syöttämä teksti
-    jos tyhjä, error
-2. luo tyhjä list item
-3. lisää käyttäjän syöttämä teksti list itemiin
-4. syötä list item listaan
-*/
+//listan nimen muokkauksessa käytettävät elementit
+const listName = document.getElementById("listname"); //listan nimi (h2)
+const inputField = document.getElementById("editListName"); //listan muokkauskenttä
+const submitButton = document.getElementById("submitButton"); //uuden nimen tallentamisnappi
+
 function errorMsg(msg){ //antaa käyttäjälle punaisen error -viestin!
     message.textContent = msg;
     message.style.color = "red";
 }
-function successMsg(msg) {
+function successMsg(msg) { //vihreä success -viesti
     message.textContent = msg;
     message.style.color = "green"
 }
 
 function addItem() { //lisätään tehtävä listaan
-    const taskText = newTask.value;
+    const taskText = taskInput.value;
     if (taskText === '') { //Tarkistetaan onko tehtävä tyhjä
         errorMsg("Tehtävä ei voi olla tyhjä!")
         return;
@@ -37,6 +36,7 @@ function addItem() { //lisätään tehtävä listaan
     //tehdään event, jolla saadaan klikattua tehtävä tehdyksi
     li.addEventListener("click", function() {
         li.classList.toggle("done"); //togglee luokan done päältä tai pois
+        updateTaskCounter(); //päivitetään tehtävälaskuri
     });
     
     //luodaan tehtävälle poistonappi
@@ -48,30 +48,30 @@ function addItem() { //lisätään tehtävä listaan
     deleteBtn.addEventListener("click", function(event){
         event.stopPropagation(); //Tämän avulla tehtävää ei merkitä tehdyksi, kun poista -nappia painetaan
         li.remove(); 
+        updateTaskCounter(); //päivitetään tehtävälaskuri
     });
 
     li.append(deleteBtn);
     list.append(li);
     successMsg("Tehtävä lisätty!");
+    updateTaskCounter(); //päivitetään tehtävälaskuri
 }
 /* halutaanko poistaa ylim. merkkejä? esim ylim.välilyönnit  */
 
-//listan nimen muokkauksessa käytettävät elementit haettuna ID:llä
-const listName = document.getElementById("listname");
-const inputField = document.getElementById("editListName");
-const submitButton = document.getElementById("submitButton");
+
 
 function changeListName() { //otsikkoa painaessa otsikko muuttuu tekstikentäksi, jossa voit muokata otsikkoa
     //muutetaan tekstinsyöttö ja nappi näkyväksi
     inputField.style.display = "inline";
-    submitButton.style.display = "inline";
+    submitButton.style.display = "hidden";
     inputField.value = listName.textContent; // asetetaan input-kenttään nykyinen otsikko valmiiksi muokattavaksi
     listName.style.display = "none";
 
     inputField.focus(); //Laitetaan laatikko focusiin, jotta voit suoraan kirjoittaa asioita, kun painat otsikkoa
+    inputField.select() //valitaan laatikon sisältö helpottamaan sen muuttamista
 }
 
-function submitListName() {
+function submitListName() { //päivittää syötetyn listan nimen
     const listName = document.getElementById("listname");
     const inputField = document.getElementById("editListName");
     const submitButton = document.getElementById("submitButton");
@@ -85,4 +85,10 @@ function submitListName() {
     listName.style.display = "block";
     inputField.style.display = "none";
     submitButton.style.display = "none";
+}
+
+function updateTaskCounter() { //päivittää tehtävälaskurin
+    const allTasks = document.querySelectorAll("#list li").length; // Kaikkien tehtävien määrä
+    const completedTasks = document.querySelectorAll("#list li.done").length; // Suoritettujen tehtävien määrä
+    taskCounter.textContent = `Suoritetut tehtävät: ${completedTasks}/${allTasks}`; // Päivitetään laskuri
 }
