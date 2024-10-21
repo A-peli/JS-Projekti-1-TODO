@@ -42,9 +42,7 @@ The project utilizes the following technologies:
 Alternatively you can view the live version hosted on Netlify using the provided [demo link](https://splendorous-pika-9febbf.netlify.app/)
 
 ## Approach
-The main focus of this project was to build a lightweight task manager using only native JavaScript. Key features include:
-
-DOM manipulation to dynamically add, remove, and mark tasks as completed.
+The main focus of this project was to build a lightweight task manager using only native JavaScript. Key features include: DOM manipulation to dynamically add, remove, and mark tasks as completed.
 Input validation to ensure meaningful task names and list titles.
 CSS for providing feedback on valid or invalid inputs (e.g., red borders for invalid entries).
 A task counter that updates in real-time based on the user's actions.
