@@ -27,7 +27,7 @@ checkMate is a simple task manager application built with native JavaScript. Use
 
 ## Screenshots
 Add here atleast one screenshot of the working application 
-`![Writing](https://i.imgur.com/9pu80Uf.png)`
+![checkMate app](https://i.imgur.com/9pu80Uf.png)
 
 ## Technologies
 
