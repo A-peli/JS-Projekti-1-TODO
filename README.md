@@ -64,4 +64,4 @@ This project was also developed with the assistance of ChatGPT for code structur
 
 ## License
 License
-This project is licensed under the MIT license. You can read more about it here.
+This project is licensed under the MIT license. You can read more about it [here](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)
