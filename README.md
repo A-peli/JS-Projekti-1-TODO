@@ -1,5 +1,6 @@
 # checkMate
 The todo -list app that checkmates every other app there is! 
+
 Created by: Aapeli Huhtinen & Pinja Lalla
 
 ## Demo link:
