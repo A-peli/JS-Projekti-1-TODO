@@ -26,7 +26,6 @@ The project was co-created by Aapeli Huhtinen & Pinja Lalla. All aspects of HTML
 checkMate is a simple task manager application built with native JavaScript. Users can add tasks to list, mark them as completed and remove them from the list. The application features a counter that shows how many tasks have been completed. Users can rename the tasklist. The application checks inputs to ensure the tasks and list names meet minumum length requirements and provides user feedback with success or error messages in the allocated space.
 
 ## Screenshots
-Add here atleast one screenshot of the working application 
 ![checkMate app](https://i.imgur.com/9pu80Uf.png)
 
 ## Technologies
